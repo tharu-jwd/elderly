@@ -2,22 +2,7 @@
 
 Enterprise-grade elderly care platform connecting elders with verified caregivers. Built with security-first principles and OWASP Top 10 compliance.
 
-## 🔒 Security Features
-
-- **Enterprise-level security** with zero tolerance for vulnerabilities
-- **OWASP Top 10 compliance** - all vulnerabilities addressed
-- **Input validation & sanitization** on ALL endpoints with Zod
-- **SQL injection prevention** with Prisma parameterized queries
-- **XSS protection** with Content Security Policy headers
-- **CSRF protection** enabled
-- **Rate limiting** on all API endpoints
-- **Secure session management** (httpOnly, secure, sameSite cookies)
-- **Data encryption** at rest and in transit (TLS 1.3 minimum)
-- **Security headers** (HSTS, X-Frame-Options, X-Content-Type-Options)
-- **Account lockout** after failed login attempts
-- **Password security** (bcrypt hashing, strong password requirements)
-
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Frontend**: Next.js 14+ with TypeScript (strict mode)
 - **UI**: Bootstrap 5+ with React Bootstrap components
@@ -27,7 +12,7 @@ Enterprise-grade elderly care platform connecting elders with verified caregiver
 - **Testing**: Jest/Vitest + React Testing Library + Playwright
 - **CI/CD**: GitHub Actions with comprehensive security scanning
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -90,7 +75,7 @@ src/
 └── test/                 # Test utilities
 ```
 
-## 🧪 Testing
+## Testing
 
 ```bash
 # Run all tests
@@ -109,7 +94,7 @@ npm run test:e2e
 npm run test:e2e:ui
 ```
 
-## 📊 Database
+## Database
 
 ```bash
 # Generate Prisma client
@@ -125,7 +110,7 @@ npm run db:reset
 npm run db:studio
 ```
 
-## 🔍 Code Quality
+## Code Quality
 
 ```bash
 # Lint code
@@ -144,7 +129,7 @@ npm run format
 npm run format:check
 ```
 
-## 🐳 Docker
+## Docker
 
 ### Development
 
@@ -159,7 +144,7 @@ docker build -t elderly-care .
 docker run -p 3000:3000 elderly-care
 ```
 
-## 📋 User Roles
+## User Roles
 
 ### Elder (Care Recipient)
 
@@ -181,7 +166,7 @@ docker run -p 3000:3000 elderly-care
 - Platform oversight
 - Analytics and reporting
 
-## 🔐 Authentication
+## Authentication
 
 - **NextAuth.js** with JWT strategy
 - **Google OAuth** integration
@@ -189,7 +174,22 @@ docker run -p 3000:3000 elderly-care
 - **Account lockout** after 5 failed attempts (15-minute lockout)
 - **Strong password requirements**
 
-## 🛡 Security Implementation
+## Security Implementation
+
+## Security Features
+
+- **Enterprise-level security** with zero tolerance for vulnerabilities
+- **OWASP Top 10 compliance** - all vulnerabilities addressed
+- **Input validation & sanitization** on ALL endpoints with Zod
+- **SQL injection prevention** with Prisma parameterized queries
+- **XSS protection** with Content Security Policy headers
+- **CSRF protection** enabled
+- **Rate limiting** on all API endpoints
+- **Secure session management** (httpOnly, secure, sameSite cookies)
+- **Data encryption** at rest and in transit (TLS 1.3 minimum)
+- **Security headers** (HSTS, X-Frame-Options, X-Content-Type-Options)
+- **Account lockout** after failed login attempts
+- **Password security** (bcrypt hashing, strong password requirements)
 
 ### Input Validation
 
@@ -216,7 +216,7 @@ Implemented in `middleware.ts` and `next.config.ts`:
 - Strict-Transport-Security (production)
 - X-XSS-Protection
 
-## 🚀 Deployment
+## Deployment
 
 ### Environment Variables (Production)
 
@@ -238,20 +238,12 @@ GitHub Actions automatically:
 - Builds Docker image
 - Validates deployment readiness
 
-## 📈 Monitoring & Observability
+## Monitoring & Observability
 
 - **Error tracking** ready (Sentry integration points)
 - **Performance monitoring** with Next.js analytics
 - **Database monitoring** with Prisma
 - **Security event logging**
-
-## 🤝 Contributing
-
-1. Create feature branch from `develop`
-2. Implement changes with tests
-3. Ensure all security checks pass
-4. Submit PR with detailed description
-5. Code review required before merge
 
 ### Branch Protection
 
@@ -272,5 +264,3 @@ GitHub Actions automatically:
 For issues, questions, or contributions, please open an issue in the GitHub repository.
 
 ---
-
-**Built with ❤️ for safer elderly care**
