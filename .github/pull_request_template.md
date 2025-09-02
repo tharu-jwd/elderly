@@ -2,13 +2,11 @@
 
 Brief description of changes made in this PR.
 
-## Related Issues
+## Related Issue
 
-<!-- Use GitHub linking keywords to connect this PR to issues -->
+<!-- Each PR should address only ONE issue -->
 
-- Closes #
-- Fixes #
-- Related to #
+Fixes #
 
 ## Changes Made
 
