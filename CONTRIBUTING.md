@@ -2,14 +2,13 @@
 
 Thank you for your interest in contributing to ElderCare Connect! This platform handles sensitive healthcare data, so we maintain strict security and quality standards.
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
 - Node.js 18+
 - Docker & Docker Compose
 - Git
-- Understanding of healthcare data security requirements
 
 ### Development Setup
 
@@ -34,7 +33,7 @@ Thank you for your interest in contributing to ElderCare Connect! This platform 
    # Or with Docker: docker-compose up --build
    ```
 
-## 🔒 Security First
+## Security First
 
 **CRITICAL**: This platform handles sensitive healthcare data. Every contribution must prioritize security.
 
@@ -55,7 +54,7 @@ Thank you for your interest in contributing to ElderCare Connect! This platform 
 3. Test security implications of your changes
 4. Never commit secrets or sensitive data
 
-## 📋 Contribution Workflow
+## Contribution Workflow
 
 ### 1. Create Feature Branch
 
@@ -156,11 +155,11 @@ Part of #202"
 
 1. **Create PR** against `main` branch
 2. **Fill out PR template** completely
-3. **Ensure CI passes** (all checks green)
+3. **Ensure CI pipeline passes** (all checks green)
 4. **Request review** from maintainers
-5. **Address feedback** promptly
+5. **Address feedback and await merge from us** promptly
 
-#### PR Requirements
+#### PR Requirements Template
 
 - [ ] Descriptive title and summary
 - [ ] Links to relevant issues
@@ -169,7 +168,7 @@ Part of #202"
 - [ ] Documentation updated
 - [ ] No breaking changes (or properly documented)
 
-## 🧪 Testing Guidelines
+## Testing Guidelines
 
 ### Unit Tests
 
@@ -204,13 +203,13 @@ npm run test:e2e
 - Test across multiple browsers
 - Include accessibility checks
 
-## 🛡 Security Contributions
+## Security Contributions
 
 ### Vulnerability Reports
 
 **DO NOT** report security vulnerabilities through GitHub issues.
 
-Email: security@eldercare-connect.com
+Email: elderlybyforlo@gmail.com
 
 Include:
 
@@ -229,7 +228,7 @@ When contributing security improvements:
 4. Document security implications
 5. Request security team review
 
-## 📚 Code Review Process
+## Code Review Process
 
 ### For Contributors
 
@@ -246,7 +245,7 @@ When contributing security improvements:
 - Validate documentation updates
 - Test locally when needed
 
-## 🎯 Contribution Areas
+## Contribution Areas
 
 ### High Priority
 
@@ -269,7 +268,7 @@ When contributing security improvements:
 - Deployment instructions
 - User guides
 
-## 🚫 What Not to Contribute
+## What Not to Contribute
 
 - Code that compromises security
 - Features without proper testing
@@ -277,14 +276,14 @@ When contributing security improvements:
 - Functionality that violates healthcare privacy
 - Dependencies with known vulnerabilities
 
-## 📞 Getting Help
+## Getting Help
 
 - **General questions**: Open a GitHub discussion
 - **Bug reports**: Create an issue with reproduction steps
 - **Feature requests**: Open an issue with detailed requirements
-- **Security concerns**: Email security team directly
+- **Security concerns**: Email our team directly
 
-## 📋 Issue Guidelines
+## Issue Guidelines
 
 ### Bug Reports
 
@@ -306,7 +305,7 @@ Include:
 - Security implications
 - Healthcare compliance considerations
 
-## ⚡ Quick Commands
+## Quick Commands
 
 ```bash
 # Development
@@ -329,7 +328,7 @@ npm run build           # Production build
 docker-compose up       # Start with Docker
 ```
 
-## 🏆 Recognition
+## Recognition
 
 Contributors will be recognized in:
 
