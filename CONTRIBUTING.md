@@ -12,26 +12,38 @@ Thank you for your interest in contributing to ElderCare Connect! This platform 
 
 ### Development Setup
 
-1. Fork the repository
-2. Clone your fork:
-   ```bash
-   git clone https://github.com/your-username/elderly.git
-   cd elderly
-   ```
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-4. Set up environment:
-   ```bash
-   cp .env.example .env
-   # Configure your .env file
-   ```
-5. Start development:
-   ```bash
-   npm run dev
-   # Or with Docker: docker-compose up --build
-   ```
+1. **Clone and install dependencies:**
+
+```bash
+git clone <repository-url>
+cd elderly
+npm install
+```
+
+2. **Set up environment variables:**
+
+```bash
+cp .env.example .env
+# Edit .env with your configuration
+```
+
+3. **Start with Docker (Recommended):**
+
+```bash
+docker-compose up --build
+```
+
+4. **Or start locally:**
+
+```bash
+npm run db:migrate
+npm run dev
+```
+
+5. **Access the application:**
+
+- Application: http://localhost:3000
+- Database Studio: `npm run db:studio`
 
 ## Security First
 
@@ -46,6 +58,85 @@ Thank you for your interest in contributing to ElderCare Connect! This platform 
 - Rate limiting implementation
 - Secure error handling (no sensitive data exposure)
 - OWASP Top 10 compliance
+
+## Security Implementation
+
+## Security Features
+
+- **Enterprise-level security** with zero tolerance for vulnerabilities
+- **OWASP Top 10 compliance** - all vulnerabilities addressed
+- **Input validation & sanitization** on ALL endpoints with Zod
+- **SQL injection prevention** with Prisma parameterized queries
+- **XSS protection** with Content Security Policy headers
+- **CSRF protection** enabled
+- **Rate limiting** on all API endpoints
+- **Secure session management** (httpOnly, secure, sameSite cookies)
+- **Data encryption** at rest and in transit (TLS 1.3 minimum)
+- **Security headers** (HSTS, X-Frame-Options, X-Content-Type-Options)
+- **Account lockout** after failed login attempts
+- **Password security** (bcrypt hashing, strong password requirements)
+
+### Input Validation
+
+All API endpoints use Zod schemas for validation:
+
+- `loginSchema` - Email and password validation
+- `registerSchema` - Registration with role selection
+- `elderProfileSchema` - Elder profile information
+- `caregiverProfileSchema` - Caregiver profile information
+
+### Rate Limiting
+
+- **API routes**: 100 requests per minute
+- **Auth endpoints**: 20 requests per minute
+- **IP-based tracking** with in-memory store
+
+### Security Headers
+
+Implemented in `middleware.ts` and `next.config.ts`:
+
+- Content Security Policy
+- X-Frame-Options: DENY
+- X-Content-Type-Options: nosniff
+- Strict-Transport-Security (production)
+- X-XSS-Protection
+
+## Deployment
+
+### Environment Variables (Production)
+
+```bash
+DATABASE_URL="postgresql://..."
+NEXTAUTH_URL="https://your-domain.com"
+NEXTAUTH_SECRET="secure-secret-key"
+GOOGLE_CLIENT_ID="..."
+GOOGLE_CLIENT_SECRET="..."
+```
+
+### CI/CD Pipeline
+
+GitHub Actions automatically:
+
+- Runs security scans (CodeQL, npm audit, Snyk)
+- Executes full test suite
+- Checks code quality (ESLint, TypeScript)
+- Builds Docker image
+- Validates deployment readiness
+
+## Monitoring & Observability
+
+- **Error tracking** ready (Sentry integration points)
+- **Performance monitoring** with Next.js analytics
+- **Database monitoring** with Prisma
+- **Security event logging**
+
+### Branch Protection
+
+- No direct pushes to `main`
+- Require PR reviews
+- All status checks must pass
+- Up-to-date branch required
+
 
 ### Before Contributing
 
@@ -122,6 +213,56 @@ npm run build         # Successful production build
 - [ ] Security impact assessment
 - [ ] No breaking changes (or properly documented)
 - [ ] Links back to issue using `Fixes #issuenum`
+
+## Database
+
+```bash
+# Generate Prisma client
+npx prisma generate
+
+# Create migration
+npm run db:migrate
+
+# Reset database
+npm run db:reset
+
+# Open database studio
+npm run db:studio
+```
+
+## Code Quality
+
+```bash
+# Lint code
+npm run lint
+
+# Fix linting issues
+npm run lint:fix
+
+# Type check
+npm run type-check
+
+# Format code
+npm run format
+
+# Check formatting
+npm run format:check
+```
+
+## Docker
+
+### Development
+
+```bash
+docker-compose up --build
+```
+
+### Production
+
+```bash
+docker build -t elderly-care .
+docker run -p 3000:3000 elderly-care
+```
 
 ## Testing Guidelines
 
