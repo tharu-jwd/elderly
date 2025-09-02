@@ -195,9 +195,13 @@ fix(api): resolve rate limiting bypass
 security(middleware): implement CSP headers
 ```
 
-### 5. Pull Request Process
+### 5. Pull Request Standards
+
+**Important**: Each PR should address only ONE issue. If you need to work on multiple issues, create separate PRs.
 
 #### PR Title Format
+
+Mention the addressing issue at the end in ()
 
 ```
 feat: add caregiver verification system (fixes #123)
@@ -205,33 +209,25 @@ fix: resolve authentication timeout issue (fixes #456)
 security: implement rate limiting (fixes #789)
 ```
 
-**Important**: Each PR should address only ONE issue. If you need to work on multiple issues, create separate PRs.
+#### PR Description Format
 
-#### PR Description Template
-
-Use the provided PR template and include:
+Include:
 
 - **Summary**: Brief description of changes
-- **Related Issues**: Link to the ONE issue this PR addresses
-- **Security Impact**: Required assessment of security implications
+- **Security Impact**: Assessment of security implications if any
 - **Testing**: Comprehensive testing checklist
 - **Breaking Changes**: Document any breaking changes
+- **Issue Reference**: Mention the addressing issue `Fixes #issueno` at the end 
 
-#### Issue Linking
-
-**Only in PR title and description:**
-
-- `Fixes #123` - Links PR to issue and will close it when merged
-
-#### PR Requirements
+Then tick the checklist provided below. 
 
 - [ ] Descriptive title with issue reference
-- [ ] Complete description using template
-- [ ] Links to ONE issue using `Fixes #123`
-- [ ] Security impact assessment
-- [ ] Test coverage maintained/improved
+- [ ] Comprehensive description
 - [ ] Documentation updated
+- [ ] Test coverage maintained/improved
+- [ ] Security impact assessment
 - [ ] No breaking changes (or properly documented)
+- [ ] Link to issue using `Fixes #123` 
 
 ## Code Review Process
 
@@ -345,4 +341,4 @@ Contributors will be recognized in:
 
 ---
 
-**Together, we're building a secure platform that helps vulnerable populations access quality care. Every contribution matters.**
+**We're building a secure platform that helps vulnerable populations access quality care. Every contribution matters.**
