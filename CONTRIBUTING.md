@@ -1,6 +1,6 @@
 # Contributing to Elderly
 
-Thank you for your interest in contributing to ElderCare Connect! This platform handles sensitive healthcare data, so we maintain strict security and quality standards.
+Thank you for your interest in contributing to Elderly! This platform handles sensitive healthcare data, so we maintain strict security and quality standards.
 
 ## Getting Started
 
@@ -59,85 +59,6 @@ npm run dev
 - Secure error handling (no sensitive data exposure)
 - OWASP Top 10 compliance
 
-## Security Implementation
-
-## Security Features
-
-- **Enterprise-level security** with zero tolerance for vulnerabilities
-- **OWASP Top 10 compliance** - all vulnerabilities addressed
-- **Input validation & sanitization** on ALL endpoints with Zod
-- **SQL injection prevention** with Prisma parameterized queries
-- **XSS protection** with Content Security Policy headers
-- **CSRF protection** enabled
-- **Rate limiting** on all API endpoints
-- **Secure session management** (httpOnly, secure, sameSite cookies)
-- **Data encryption** at rest and in transit (TLS 1.3 minimum)
-- **Security headers** (HSTS, X-Frame-Options, X-Content-Type-Options)
-- **Account lockout** after failed login attempts
-- **Password security** (bcrypt hashing, strong password requirements)
-
-### Input Validation
-
-All API endpoints use Zod schemas for validation:
-
-- `loginSchema` - Email and password validation
-- `registerSchema` - Registration with role selection
-- `elderProfileSchema` - Elder profile information
-- `caregiverProfileSchema` - Caregiver profile information
-
-### Rate Limiting
-
-- **API routes**: 100 requests per minute
-- **Auth endpoints**: 20 requests per minute
-- **IP-based tracking** with in-memory store
-
-### Security Headers
-
-Implemented in `middleware.ts` and `next.config.ts`:
-
-- Content Security Policy
-- X-Frame-Options: DENY
-- X-Content-Type-Options: nosniff
-- Strict-Transport-Security (production)
-- X-XSS-Protection
-
-## Deployment
-
-### Environment Variables (Production)
-
-```bash
-DATABASE_URL="postgresql://..."
-NEXTAUTH_URL="https://your-domain.com"
-NEXTAUTH_SECRET="secure-secret-key"
-GOOGLE_CLIENT_ID="..."
-GOOGLE_CLIENT_SECRET="..."
-```
-
-### CI/CD Pipeline
-
-GitHub Actions automatically:
-
-- Runs security scans (CodeQL, npm audit, Snyk)
-- Executes full test suite
-- Checks code quality (ESLint, TypeScript)
-- Builds Docker image
-- Validates deployment readiness
-
-## Monitoring & Observability
-
-- **Error tracking** ready (Sentry integration points)
-- **Performance monitoring** with Next.js analytics
-- **Database monitoring** with Prisma
-- **Security event logging**
-
-### Branch Protection
-
-- No direct pushes to `main`
-- Require PR reviews
-- All status checks must pass
-- Up-to-date branch required
-
-
 ### Before Contributing
 
 1. Review [SECURITY.md](./SECURITY.md)
@@ -155,7 +76,7 @@ git checkout -b feature/your-feature-name
 git checkout -b fix/issue-description
 ```
 
-### 2. Develop
+### 2. Development Standards
 
 #### Code Style
 
@@ -197,17 +118,29 @@ npm audit             # No high/critical vulnerabilities
 npm run build         # Successful production build
 ```
 
-### 4. Pull Request 
+### 4. Commit Standards
 
-1. **Create PR** against `main` branch with proper issue linking
-2. **Fill out PR template** completely
-3. **Ensure CI passes** (all checks green)
-4. **Request review** from maintainers
-5. **Address feedback** promptly
+#### Commit Message Format
 
-#### PR Title & Description Standards
+```
+type(scope): description (fixes #123)
 
-**PR Title Format:**
+Examples:
+feat(auth): add account lockout mechanism (closes #45)
+fix(api): resolve rate limiting bypass (fixes #67)
+security(middleware): implement CSP headers (addresses #89)
+```
+
+#### Issue Linking in Commits
+
+- `fixes #123` - Links commit to issue
+- `closes #456` - Will close issue when merged
+- `resolves #789` - Alternative to closes
+- `addresses #101` - Partial fix or improvement
+
+### 5. Pull Request Process
+
+#### PR Title Format
 
 ```
 feat: add caregiver verification system (closes #123)
@@ -215,48 +148,15 @@ fix: resolve authentication timeout issue (fixes #456)
 security: implement rate limiting (addresses #789)
 ```
 
-**PR Description Template:**
+#### PR Description Template
 
-```markdown
-## Summary
+Use the provided PR template and include:
 
-Brief description of changes made.
-
-## Related Issues
-
-- Closes #123
-- Fixes #456
-- Related to #789
-
-## Changes Made
-
-- [ ] Added caregiver verification API
-- [ ] Updated authentication middleware
-- [ ] Enhanced security validations
-
-## Security Impact
-
-Describe any security implications or improvements.
-
-## Testing
-
-- [ ] Unit tests added/updated
-- [ ] Integration tests pass
-- [ ] E2E tests cover new functionality
-- [ ] Security tests implemented
-
-## Breaking Changes
-
-None / List any breaking changes
-
-## Checklist
-
-- [ ] Code follows project conventions
-- [ ] Tests added for new functionality
-- [ ] Documentation updated
-- [ ] Security review completed
-- [ ] CI/CD pipeline passes
-```
+- **Summary**: Brief description of changes
+- **Related Issues**: Link all relevant issues using keywords
+- **Security Impact**: Required assessment of security implications
+- **Testing**: Comprehensive testing checklist
+- **Breaking Changes**: Document any breaking changes
 
 #### Issue Linking in PRs
 
@@ -286,11 +186,11 @@ None / List any breaking changes
 - [ ] Security impact assessment
 - [ ] Test coverage maintained/improved
 - [ ] Documentation updated
-- [ ] Security impact assessment
 - [ ] No breaking changes (or properly documented)
-- [ ] Links back to issue using `Fixes #issuenum`
 
-## Database
+## Development Commands
+
+### Database
 
 ```bash
 # Generate Prisma client
@@ -306,7 +206,7 @@ npm run db:reset
 npm run db:studio
 ```
 
-## Code Quality
+### Code Quality
 
 ```bash
 # Lint code
@@ -325,55 +225,32 @@ npm run format
 npm run format:check
 ```
 
-## Docker
-
-### Development
+### Testing
 
 ```bash
-docker-compose up --build
-```
-
-### Production
-
-```bash
-docker build -t elderly-care .
-docker run -p 3000:3000 elderly-care
-```
-
-## Testing Guidelines
-
-### Unit Tests
-
-```bash
+# Unit tests
 npm run test:unit
-```
 
-- Test all business logic
-- Mock external dependencies
-- Cover edge cases and error conditions
-- Maintain 80%+ coverage
-
-### Integration Tests
-
-```bash
+# Integration tests
 npm run test:integration
+
+# E2E tests
+npm run test:e2e
+
+# All tests
+npm run test
 ```
 
-- Test API endpoints end-to-end
-- Validate authentication flows
-- Test database interactions
-- Verify security middleware
-
-### E2E Tests
+### Docker
 
 ```bash
-npm run test:e2e
-```
+# Development
+docker-compose up --build
 
-- Test complete user workflows
-- Validate UI interactions
-- Test across multiple browsers
-- Include accessibility checks
+# Production build
+docker build -t elderly .
+docker run -p 3000:3000 elderly
+```
 
 ## Security Contributions
 
@@ -476,29 +353,6 @@ Include:
 - Alternative considerations
 - Security implications
 - Healthcare compliance considerations
-
-## Quick Commands
-
-```bash
-# Development
-npm run dev              # Start development server
-npm run db:studio        # Open database admin
-
-# Quality Assurance
-npm run lint            # Check code style
-npm run type-check      # TypeScript validation
-npm run test            # Run all tests
-npm run format          # Format code
-
-# Database
-npm run db:migrate      # Apply migrations
-npm run db:reset        # Reset database
-npm run db:seed         # Seed test data
-
-# Production
-npm run build           # Production build
-docker-compose up       # Start with Docker
-```
 
 ## Recognition
 
