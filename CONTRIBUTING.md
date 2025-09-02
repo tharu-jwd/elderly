@@ -187,66 +187,47 @@ npm run build         # Successful production build
 #### Commit Message Format
 
 ```
-type(scope): description (fixes #123)
+type(scope): description
 
 Examples:
-feat(auth): add account lockout mechanism (closes #45)
-fix(api): resolve rate limiting bypass (fixes #67)
-security(middleware): implement CSP headers (addresses #89)
+feat(auth): add account lockout mechanism
+fix(api): resolve rate limiting bypass
+security(middleware): implement CSP headers
 ```
-
-#### Issue Linking in Commits
-
-- `fixes #123` - Links commit to issue
-- `closes #456` - Will close issue when merged
-- `resolves #789` - Alternative to closes
-- `addresses #101` - Partial fix or improvement
 
 ### 5. Pull Request Process
 
 #### PR Title Format
 
 ```
-feat: add caregiver verification system (closes #123)
+feat: add caregiver verification system (fixes #123)
 fix: resolve authentication timeout issue (fixes #456)
-security: implement rate limiting (addresses #789)
+security: implement rate limiting (fixes #789)
 ```
+
+**Important**: Each PR should address only ONE issue. If you need to work on multiple issues, create separate PRs.
 
 #### PR Description Template
 
 Use the provided PR template and include:
 
 - **Summary**: Brief description of changes
-- **Related Issues**: Link all relevant issues using keywords
+- **Related Issues**: Link to the ONE issue this PR addresses
 - **Security Impact**: Required assessment of security implications
 - **Testing**: Comprehensive testing checklist
 - **Breaking Changes**: Document any breaking changes
 
-#### Issue Linking in PRs
+#### Issue Linking
 
-**In PR Description:**
+**Only in PR title and description:**
 
-- `Closes #123` - Will close issue when PR merges
-- `Fixes #456` - Will close bug report when PR merges
-- `Resolves #789` - Will close issue when PR merges
-- `Related to #101` - Links to issue without closing
-- `Part of #202` - Indicates partial work on larger issue
-
-**Multiple Issues:**
-
-```markdown
-## Related Issues
-
-- Closes #123, #124
-- Fixes #456
-- Related to #789, #790
-```
+- `Fixes #123` - Links PR to issue and will close it when merged
 
 #### PR Requirements
 
 - [ ] Descriptive title with issue reference
 - [ ] Complete description using template
-- [ ] Links to ALL relevant issues
+- [ ] Links to ONE issue using `Fixes #123`
 - [ ] Security impact assessment
 - [ ] Test coverage maintained/improved
 - [ ] Documentation updated
