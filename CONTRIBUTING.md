@@ -39,13 +39,13 @@ Thank you for your interest in contributing to ElderCare Connect! This platform 
 
 ### Security Requirements
 
-- ✅ Input validation using Zod schemas
-- ✅ SQL injection prevention (Prisma only)
-- ✅ XSS protection compliance
-- ✅ Authentication/authorization checks
-- ✅ Rate limiting implementation
-- ✅ Secure error handling (no sensitive data exposure)
-- ✅ OWASP Top 10 compliance
+- Input validation using Zod schemas
+- SQL injection prevention (Prisma only)
+- XSS protection compliance
+- Authentication/authorization checks
+- Rate limiting implementation
+- Secure error handling (no sensitive data exposure)
+- OWASP Top 10 compliance
 
 ### Before Contributing
 
@@ -64,7 +64,7 @@ git checkout -b feature/your-feature-name
 git checkout -b fix/issue-description
 ```
 
-### 2. Development Guidelines
+### 2. Develop
 
 #### Code Style
 
@@ -106,67 +106,22 @@ npm audit             # No high/critical vulnerabilities
 npm run build         # Successful production build
 ```
 
-### 4. Commit Standards
-
-Use conventional commits with issue linking:
-
-```bash
-# Features
-git commit -m "feat: add caregiver verification system
-
-Implements background check integration and verification workflow.
-Closes #123"
-
-# Bug fixes
-git commit -m "fix: resolve authentication session timeout
-
-Session cookies now properly persist across browser sessions.
-Fixes #456"
-
-# Security
-git commit -m "security: implement additional rate limiting
-
-Adds stricter rate limiting for sensitive endpoints.
-Addresses #789"
-
-# Documentation
-git commit -m "docs: update API documentation
-
-Adds missing endpoint documentation and examples.
-Related to #101"
-
-# Tests
-git commit -m "test: add authentication flow tests
-
-Improves test coverage for login/logout workflows.
-Part of #202"
-```
-
-**Issue Linking Keywords:**
-
-- `Closes #123` - Closes the issue when PR is merged
-- `Fixes #123` - Same as closes
-- `Resolves #123` - Same as closes
-- `Related to #123` - Links without closing
-- `Part of #123` - Links as partial work
-- `Addresses #123` - Links as addressing the issue
-
-### 5. Pull Request Process
+### 4. Pull Request 
 
 1. **Create PR** against `main` branch
-2. **Fill out PR template** completely
+2. **Tick out the PR template** reflecting the changes made 
 3. **Ensure CI pipeline passes** (all checks green)
 4. **Request review** from maintainers
-5. **Address feedback and await merge from us** promptly
-
+5. **Address feedback** and await the merge from us
+   
 #### PR Requirements Template
 
 - [ ] Descriptive title and summary
-- [ ] Links to relevant issues
-- [ ] Security impact assessment
 - [ ] Test coverage maintained/improved
 - [ ] Documentation updated
+- [ ] Security impact assessment
 - [ ] No breaking changes (or properly documented)
+- [ ] Links back to issue using `Fixes #issuenum`
 
 ## Testing Guidelines
 
