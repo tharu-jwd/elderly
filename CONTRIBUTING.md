@@ -1,6 +1,6 @@
 # Contributing to Elderly
 
-Thank you for your interest in contributing to Elderly! This platform handles sensitive healthcare data, so we maintain strict security and quality standards.
+This platform handles sensitive healthcare data, so we maintain strict security and quality standards.
 
 ## Security First
 
