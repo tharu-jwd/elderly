@@ -1,4 +1,4 @@
-# ElderCare Connect
+# Elderly
 
 Enterprise-grade elderly care platform connecting elders with verified caregivers. Built with security-first principles and OWASP Top 10 compliance.
 
@@ -252,14 +252,14 @@ GitHub Actions automatically:
 - All status checks must pass
 - Up-to-date branch required
 
-## 📚 Additional Documentation
+## Additional Documentation
 
 - [API Documentation](./docs/api.md)
 - [Security Implementation](./docs/security.md)
 - [Deployment Guide](./docs/deployment.md)
 - [Contributing Guidelines](./docs/contributing.md)
 
-## 📞 Support
+## Support
 
 For issues, questions, or contributions, please open an issue in the GitHub repository.
 
