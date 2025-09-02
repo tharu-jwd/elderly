@@ -1,4 +1,4 @@
-# Contributing to ElderCare Connect
+# Contributing to Elderly
 
 Thank you for your interest in contributing to ElderCare Connect! This platform handles sensitive healthcare data, so we maintain strict security and quality standards.
 
