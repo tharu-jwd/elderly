@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://elderly_user:elderly_pass@postgres:5432/elderly_db
+      - NEXTAUTH_URL=http://localhost:3000
+      - NEXTAUTH_SECRET=development-secret-change-in-production
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      - postgres
+    networks:
+      - elderly-network
+
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=elderly_db
+      - POSTGRES_USER=elderly_user
+      - POSTGRES_PASSWORD=elderly_pass
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    networks:
+      - elderly-network
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - '6379:6379'
+    command: redis-server --requirepass elderly_redis_pass
+    networks:
+      - elderly-network
+
+volumes:
+  postgres_data:
+
+networks:
+  elderly-network:
+    driver: bridge

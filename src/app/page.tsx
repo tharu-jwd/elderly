@@ -1,103 +1,118 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+import { Container, Row, Col, Button, Card } from 'react-bootstrap';
+import { useSession } from 'next-auth/react';
+import Link from 'next/link';
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+export default function HomePage() {
+  const { data: session, status } = useSession();
+
+  if (status === 'loading') {
+    return (
+      <Container className="d-flex justify-content-center align-items-center min-vh-100">
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Loading...</span>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </Container>
+    );
+  }
+
+  return (
+    <Container className="py-5">
+      <Row className="text-center mb-5">
+        <Col>
+          <h1 className="display-4 mb-3">ElderCare Connect</h1>
+          <p className="lead">Connecting elderly individuals with trusted, verified caregivers</p>
+        </Col>
+      </Row>
+
+      {!session ? (
+        <Row className="justify-content-center">
+          <Col md={8}>
+            <Row>
+              <Col md={6} className="mb-4">
+                <Card className="h-100 text-center">
+                  <Card.Body className="d-flex flex-column">
+                    <Card.Title>For Elders</Card.Title>
+                    <Card.Text className="flex-grow-1">
+                      Find trusted caregivers who can provide personalized care tailored to your
+                      specific needs and preferences.
+                    </Card.Text>
+                    <Link href="/auth/signup?role=elder" passHref>
+                      <Button variant="primary" size="lg" className="w-100">
+                        Get Care
+                      </Button>
+                    </Link>
+                  </Card.Body>
+                </Card>
+              </Col>
+              <Col md={6} className="mb-4">
+                <Card className="h-100 text-center">
+                  <Card.Body className="d-flex flex-column">
+                    <Card.Title>For Caregivers</Card.Title>
+                    <Card.Text className="flex-grow-1">
+                      Join our platform to connect with elderly individuals who need your
+                      compassionate care and expertise.
+                    </Card.Text>
+                    <Link href="/auth/signup?role=caregiver" passHref>
+                      <Button variant="success" size="lg" className="w-100">
+                        Provide Care
+                      </Button>
+                    </Link>
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
+            <Row className="mt-4">
+              <Col className="text-center">
+                <p>
+                  Already have an account? <Link href="/auth/signin">Sign in here</Link>
+                </p>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      ) : (
+        <Row className="justify-content-center">
+          <Col md={8} className="text-center">
+            <h2>Welcome back, {session.user?.name}!</h2>
+            <p className="mb-4">Role: {session.user?.role}</p>
+            {session.user?.role === 'ELDER' ? (
+              <Link href="/dashboard/elder" passHref>
+                <Button variant="primary" size="lg">
+                  Go to Dashboard
+                </Button>
+              </Link>
+            ) : (
+              <Link href="/dashboard/caregiver" passHref>
+                <Button variant="primary" size="lg">
+                  Go to Dashboard
+                </Button>
+              </Link>
+            )}
+          </Col>
+        </Row>
+      )}
+
+      <Row className="mt-5">
+        <Col>
+          <h3 className="text-center mb-4">Why Choose ElderCare Connect?</h3>
+          <Row>
+            <Col md={4} className="text-center mb-3">
+              <h5>🔒 Secure & Private</h5>
+              <p>Enterprise-grade security protecting your sensitive information</p>
+            </Col>
+            <Col md={4} className="text-center mb-3">
+              <h5>✅ Verified Caregivers</h5>
+              <p>All caregivers undergo thorough background checks and verification</p>
+            </Col>
+            <Col md={4} className="text-center mb-3">
+              <h5>🤝 Personalized Matching</h5>
+              <p>Smart matching system based on needs, location, and preferences</p>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+    </Container>
   );
 }

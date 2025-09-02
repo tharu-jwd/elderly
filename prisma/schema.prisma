@@ -1,0 +1,155 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id                String    @id @default(cuid())
+  name              String?
+  email             String    @unique
+  emailVerified     DateTime?
+  image             String?
+  password          String?
+  role              Role      @default(ELDER)
+  isActive          Boolean   @default(true)
+  failedLoginCount  Int       @default(0)
+  lastFailedLogin   DateTime?
+  accountLockedUntil DateTime?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  accounts Account[]
+  sessions Session[]
+  
+  elderProfile     ElderProfile?
+  caregiverProfile CaregiverProfile?
+  careRequests     CareRequest[]
+  careMatches      CareMatch[]
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model ElderProfile {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  age         Int
+  address     String
+  emergencyContact String
+  medicalInfo String?
+  careNeeds   String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model CaregiverProfile {
+  id           String   @id @default(cuid())
+  userId       String   @unique
+  experience   Int
+  certifications String?
+  availability String
+  hourlyRate   Decimal?
+  bio          String?
+  verified     Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model CareRequest {
+  id          String      @id @default(cuid())
+  elderId     String
+  title       String
+  description String
+  urgency     Urgency     @default(LOW)
+  status      RequestStatus @default(PENDING)
+  startDate   DateTime?
+  endDate     DateTime?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  elder   User        @relation(fields: [elderId], references: [id], onDelete: Cascade)
+  matches CareMatch[]
+}
+
+model CareMatch {
+  id           String    @id @default(cuid())
+  requestId    String
+  caregiverId  String
+  status       MatchStatus @default(PENDING)
+  proposedRate Decimal?
+  message      String?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  request   CareRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  caregiver User        @relation(fields: [caregiverId], references: [id], onDelete: Cascade)
+
+  @@unique([requestId, caregiverId])
+}
+
+enum Role {
+  ELDER
+  CAREGIVER
+  ADMIN
+}
+
+enum Urgency {
+  LOW
+  MEDIUM
+  HIGH
+  EMERGENCY
+}
+
+enum RequestStatus {
+  PENDING
+  ACTIVE
+  COMPLETED
+  CANCELLED
+}
+
+enum MatchStatus {
+  PENDING
+  ACCEPTED
+  DECLINED
+  COMPLETED
+}
