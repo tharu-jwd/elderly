@@ -109,24 +109,48 @@ npm run build         # Successful production build
 
 ### 4. Commit Standards
 
-Use conventional commits:
+Use conventional commits with issue linking:
 
 ```bash
 # Features
-git commit -m "feat: add caregiver verification system"
+git commit -m "feat: add caregiver verification system
+
+Implements background check integration and verification workflow.
+Closes #123"
 
 # Bug fixes
-git commit -m "fix: resolve authentication session timeout"
+git commit -m "fix: resolve authentication session timeout
+
+Session cookies now properly persist across browser sessions.
+Fixes #456"
 
 # Security
-git commit -m "security: implement additional rate limiting"
+git commit -m "security: implement additional rate limiting
+
+Adds stricter rate limiting for sensitive endpoints.
+Addresses #789"
 
 # Documentation
-git commit -m "docs: update API documentation"
+git commit -m "docs: update API documentation
+
+Adds missing endpoint documentation and examples.
+Related to #101"
 
 # Tests
-git commit -m "test: add authentication flow tests"
+git commit -m "test: add authentication flow tests
+
+Improves test coverage for login/logout workflows.
+Part of #202"
 ```
+
+**Issue Linking Keywords:**
+
+- `Closes #123` - Closes the issue when PR is merged
+- `Fixes #123` - Same as closes
+- `Resolves #123` - Same as closes
+- `Related to #123` - Links without closing
+- `Part of #123` - Links as partial work
+- `Addresses #123` - Links as addressing the issue
 
 ### 5. Pull Request Process
 
