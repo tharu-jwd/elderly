@@ -199,15 +199,91 @@ npm run build         # Successful production build
 
 ### 4. Pull Request 
 
-1. **Create PR** against `main` branch
-2. **Tick out the PR template** reflecting the changes made 
-3. **Ensure CI pipeline passes** (all checks green)
+1. **Create PR** against `main` branch with proper issue linking
+2. **Fill out PR template** completely
+3. **Ensure CI passes** (all checks green)
 4. **Request review** from maintainers
-5. **Address feedback** and await the merge from us
-   
-#### PR Requirements Template
+5. **Address feedback** promptly
 
-- [ ] Descriptive title and summary
+#### PR Title & Description Standards
+
+**PR Title Format:**
+
+```
+feat: add caregiver verification system (closes #123)
+fix: resolve authentication timeout issue (fixes #456)
+security: implement rate limiting (addresses #789)
+```
+
+**PR Description Template:**
+
+```markdown
+## Summary
+
+Brief description of changes made.
+
+## Related Issues
+
+- Closes #123
+- Fixes #456
+- Related to #789
+
+## Changes Made
+
+- [ ] Added caregiver verification API
+- [ ] Updated authentication middleware
+- [ ] Enhanced security validations
+
+## Security Impact
+
+Describe any security implications or improvements.
+
+## Testing
+
+- [ ] Unit tests added/updated
+- [ ] Integration tests pass
+- [ ] E2E tests cover new functionality
+- [ ] Security tests implemented
+
+## Breaking Changes
+
+None / List any breaking changes
+
+## Checklist
+
+- [ ] Code follows project conventions
+- [ ] Tests added for new functionality
+- [ ] Documentation updated
+- [ ] Security review completed
+- [ ] CI/CD pipeline passes
+```
+
+#### Issue Linking in PRs
+
+**In PR Description:**
+
+- `Closes #123` - Will close issue when PR merges
+- `Fixes #456` - Will close bug report when PR merges
+- `Resolves #789` - Will close issue when PR merges
+- `Related to #101` - Links to issue without closing
+- `Part of #202` - Indicates partial work on larger issue
+
+**Multiple Issues:**
+
+```markdown
+## Related Issues
+
+- Closes #123, #124
+- Fixes #456
+- Related to #789, #790
+```
+
+#### PR Requirements
+
+- [ ] Descriptive title with issue reference
+- [ ] Complete description using template
+- [ ] Links to ALL relevant issues
+- [ ] Security impact assessment
 - [ ] Test coverage maintained/improved
 - [ ] Documentation updated
 - [ ] Security impact assessment
