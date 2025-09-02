@@ -2,6 +2,27 @@
 
 Thank you for your interest in contributing to Elderly! This platform handles sensitive healthcare data, so we maintain strict security and quality standards.
 
+## Security First
+
+**CRITICAL**: This platform handles sensitive healthcare data. Every contribution must prioritize security.
+
+### Security Requirements
+
+- Input validation using Zod schemas
+- SQL injection prevention (Prisma only)
+- XSS protection compliance
+- Authentication/authorization checks
+- Rate limiting implementation
+- Secure error handling (no sensitive data exposure)
+- OWASP Top 10 compliance
+
+### Before Contributing
+
+1. Review [SECURITY.md](./SECURITY.md)
+2. Understand our security architecture
+3. Test security implications of your changes
+4. Never commit secrets or sensitive data
+
 ## Getting Started
 
 ### Prerequisites
@@ -45,26 +66,69 @@ npm run dev
 - Application: http://localhost:3000
 - Database Studio: `npm run db:studio`
 
-## Security First
+## Development Commands
 
-**CRITICAL**: This platform handles sensitive healthcare data. Every contribution must prioritize security.
+### Code Quality
 
-### Security Requirements
+```bash
+# Lint code
+npm run lint
 
-- Input validation using Zod schemas
-- SQL injection prevention (Prisma only)
-- XSS protection compliance
-- Authentication/authorization checks
-- Rate limiting implementation
-- Secure error handling (no sensitive data exposure)
-- OWASP Top 10 compliance
+# Fix linting issues
+npm run lint:fix
 
-### Before Contributing
+# Type check
+npm run type-check
 
-1. Review [SECURITY.md](./SECURITY.md)
-2. Understand our security architecture
-3. Test security implications of your changes
-4. Never commit secrets or sensitive data
+# Format code
+npm run format
+
+# Check formatting
+npm run format:check
+```
+
+### Testing
+
+```bash
+# Unit tests
+npm run test:unit
+
+# Integration tests
+npm run test:integration
+
+# E2E tests
+npm run test:e2e
+
+# All tests
+npm run test
+```
+
+### Database
+
+```bash
+# Generate Prisma client
+npx prisma generate
+
+# Create migration
+npm run db:migrate
+
+# Reset database
+npm run db:reset
+
+# Open database studio
+npm run db:studio
+```
+
+### Docker
+
+```bash
+# Development
+docker-compose up --build
+
+# Production build
+docker build -t elderly .
+docker run -p 3000:3000 elderly
+```
 
 ## Contribution Workflow
 
@@ -188,95 +252,6 @@ Use the provided PR template and include:
 - [ ] Documentation updated
 - [ ] No breaking changes (or properly documented)
 
-## Development Commands
-
-### Database
-
-```bash
-# Generate Prisma client
-npx prisma generate
-
-# Create migration
-npm run db:migrate
-
-# Reset database
-npm run db:reset
-
-# Open database studio
-npm run db:studio
-```
-
-### Code Quality
-
-```bash
-# Lint code
-npm run lint
-
-# Fix linting issues
-npm run lint:fix
-
-# Type check
-npm run type-check
-
-# Format code
-npm run format
-
-# Check formatting
-npm run format:check
-```
-
-### Testing
-
-```bash
-# Unit tests
-npm run test:unit
-
-# Integration tests
-npm run test:integration
-
-# E2E tests
-npm run test:e2e
-
-# All tests
-npm run test
-```
-
-### Docker
-
-```bash
-# Development
-docker-compose up --build
-
-# Production build
-docker build -t elderly .
-docker run -p 3000:3000 elderly
-```
-
-## Security Contributions
-
-### Vulnerability Reports
-
-**DO NOT** report security vulnerabilities through GitHub issues.
-
-Email: elderlybyforlo@gmail.com
-
-Include:
-
-- Detailed vulnerability description
-- Steps to reproduce
-- Potential impact assessment
-- Suggested mitigation (if known)
-
-### Security Enhancements
-
-When contributing security improvements:
-
-1. Research industry best practices
-2. Consider healthcare compliance requirements
-3. Test thoroughly in isolated environment
-4. Document security implications
-5. Request security team review
-
 ## Code Review Process
 
 ### For Contributors
@@ -293,6 +268,28 @@ When contributing security improvements:
 - Verify test coverage
 - Validate documentation updates
 - Test locally when needed
+
+## Issue Guidelines
+
+### Bug Reports
+
+Include:
+
+- Clear description of the issue
+- Steps to reproduce
+- Expected vs actual behavior
+- Environment details (OS, browser, Node version)
+- Screenshots/logs (sanitized of sensitive data)
+
+### Feature Requests
+
+Include:
+
+- Problem statement
+- Proposed solution
+- Alternative considerations
+- Security implications
+- Healthcare compliance considerations
 
 ## Contribution Areas
 
@@ -325,34 +322,37 @@ When contributing security improvements:
 - Functionality that violates healthcare privacy
 - Dependencies with known vulnerabilities
 
+## Security Contributions
+
+### Vulnerability Reports
+
+**DO NOT** report security vulnerabilities through GitHub issues.
+
+Email: elderlybyforlo@gmail.com
+
+Include:
+
+- Detailed vulnerability description
+- Steps to reproduce
+- Potential impact assessment
+- Suggested mitigation (if known)
+
+### Security Enhancements
+
+When contributing security improvements:
+
+1. Research industry best practices
+2. Consider healthcare compliance requirements
+3. Test thoroughly in isolated environment
+4. Document security implications
+5. Request security team review
+
 ## Getting Help
 
 - **General questions**: Open a GitHub discussion
 - **Bug reports**: Create an issue with reproduction steps
 - **Feature requests**: Open an issue with detailed requirements
 - **Security concerns**: Email our team directly
-
-## Issue Guidelines
-
-### Bug Reports
-
-Include:
-
-- Clear description of the issue
-- Steps to reproduce
-- Expected vs actual behavior
-- Environment details (OS, browser, Node version)
-- Screenshots/logs (sanitized of sensitive data)
-
-### Feature Requests
-
-Include:
-
-- Problem statement
-- Proposed solution
-- Alternative considerations
-- Security implications
-- Healthcare compliance considerations
 
 ## Recognition
 
