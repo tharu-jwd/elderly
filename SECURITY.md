@@ -215,10 +215,8 @@ ssl-key=/path/to/client-key.pem
 
 ## Security Contact
 
-For security vulnerabilities, please email: security@eldercare-connect.com
+For security vulnerabilities, please email: elderlybyforlo@gmail.com
 
 **Do not report security vulnerabilities through public GitHub issues.**
 
 ---
-
-**Security is our top priority. This platform handles sensitive healthcare data and maintains the highest security standards.**
