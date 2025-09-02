@@ -4,7 +4,7 @@
 
 ElderCare Connect implements enterprise-grade security with OWASP Top 10 compliance and zero tolerance for vulnerabilities. This document outlines our comprehensive security measures.
 
-## 🛡 Security Architecture
+## Security Architecture
 
 ### 1. Authentication & Session Management
 
@@ -82,7 +82,7 @@ connect-src 'self' https://accounts.google.com;
 frame-src https://accounts.google.com;
 ```
 
-## 🔐 Data Protection
+## Data Protection
 
 ### 1. Data Encryption
 
@@ -122,7 +122,7 @@ GitHub Actions pipeline includes:
 - **Error tracking** with security event logging
 - **Performance monitoring** for DDoS detection
 
-## 🧪 Security Testing
+## Security Testing
 
 ### 1. Automated Testing
 
@@ -138,7 +138,7 @@ GitHub Actions pipeline includes:
 - [ ] Security code review
 - [ ] Dependency vulnerability assessment
 
-## 🚨 Incident Response
+## Incident Response
 
 ### 1. Security Event Logging
 
@@ -159,7 +159,7 @@ All security events are logged:
 5. **Recovery**: Service restoration
 6. **Lessons Learned**: Process improvement
 
-## 📋 Security Checklist
+## Security Checklist
 
 ### Pre-Deployment
 
@@ -179,7 +179,7 @@ All security events are logged:
 - [ ] Incident response team notified
 - [ ] Documentation updated
 
-## 🔧 Security Configuration
+## Security Configuration
 
 ### Environment Variables (Production)
 
@@ -213,7 +213,7 @@ ssl-cert=/path/to/client-cert.pem
 ssl-key=/path/to/client-key.pem
 ```
 
-## 📞 Security Contact
+## Security Contact
 
 For security vulnerabilities, please email: security@eldercare-connect.com
 
