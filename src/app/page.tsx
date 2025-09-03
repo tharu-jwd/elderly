@@ -39,7 +39,7 @@ export default function HomePage() {
                       specific needs and preferences.
                     </Card.Text>
                     <Link href="/auth/signup?role=elder" passHref>
-                      <Button variant="primary" size="lg" className="w-100">
+                      <Button className="btn-brand-primary w-100" size="lg">
                         Get Care
                       </Button>
                     </Link>
@@ -55,7 +55,7 @@ export default function HomePage() {
                       compassionate care and expertise.
                     </Card.Text>
                     <Link href="/auth/signup?role=caregiver" passHref>
-                      <Button variant="success" size="lg" className="w-100">
+                      <Button className="btn-brand-secondary w-100" size="lg">
                         Provide Care
                       </Button>
                     </Link>

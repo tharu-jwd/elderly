@@ -1,21 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #f6f6f6;
   --foreground: #171717;
+  --brand-blue: #2e1483;
+  --brand-pink: #ff66c4;
+  --brand-cream: #f6f6f6;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-pink: var(--brand-pink);
+  --color-brand-cream: var(--brand-cream);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #f6f6f6;
+    --foreground: #171717;
   }
 }
 
@@ -23,4 +29,31 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Custom brand styles */
+.navbar-brand-custom {
+  background-color: var(--brand-blue) !important;
+}
+
+.btn-brand-primary {
+  background-color: var(--brand-blue);
+  border-color: var(--brand-blue);
+  color: white;
+}
+
+.btn-brand-primary:hover {
+  background-color: #241158;
+  border-color: #241158;
+}
+
+.btn-brand-secondary {
+  background-color: var(--brand-pink);
+  border-color: var(--brand-pink);
+  color: white;
+}
+
+.btn-brand-secondary:hover {
+  background-color: #e655b3;
+  border-color: #e655b3;
 }

@@ -8,7 +8,7 @@ export function AppNavbar() {
   const { data: session } = useSession();
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
+    <Navbar className="navbar-brand-custom" variant="dark" expand="lg" sticky="top">
       <Container>
         <Navbar.Brand as={Link} href="/">
           Elderly
