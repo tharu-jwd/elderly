@@ -93,26 +93,6 @@ export default function HomePage() {
           </Col>
         </Row>
       )}
-
-      <Row className="mt-5">
-        <Col>
-          <h3 className="text-center mb-4">Why Choose ElderCare Connect?</h3>
-          <Row>
-            <Col md={4} className="text-center mb-3">
-              <h5>🔒 Secure & Private</h5>
-              <p>Enterprise-grade security protecting your sensitive information</p>
-            </Col>
-            <Col md={4} className="text-center mb-3">
-              <h5>✅ Verified Caregivers</h5>
-              <p>All caregivers undergo thorough background checks and verification</p>
-            </Col>
-            <Col md={4} className="text-center mb-3">
-              <h5>🤝 Personalized Matching</h5>
-              <p>Smart matching system based on needs, location, and preferences</p>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
     </Container>
   );
 }
