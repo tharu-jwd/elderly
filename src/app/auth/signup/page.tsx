@@ -140,9 +140,8 @@ function SignUpForm() {
 
                 <Button
                   type="submit"
-                  variant="primary"
+                  className="btn-brand-primary w-100 mb-3"
                   size="lg"
-                  className="w-100 mb-3"
                   disabled={isLoading}
                 >
                   {isLoading ? 'Creating Account...' : 'Create Account'}

@@ -30,3 +30,30 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Custom brand styles */
+.navbar-brand-custom {
+  background-color: var(--brand-blue) !important;
+}
+
+.btn-brand-primary {
+  background-color: var(--brand-blue);
+  border-color: var(--brand-blue);
+  color: white;
+}
+
+.btn-brand-primary:hover {
+  background-color: #241158;
+  border-color: #241158;
+}
+
+.btn-brand-secondary {
+  background-color: var(--brand-pink);
+  border-color: var(--brand-pink);
+  color: white;
+}
+
+.btn-brand-secondary:hover {
+  background-color: #e655b3;
+  border-color: #e655b3;
+}
