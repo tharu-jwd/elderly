@@ -1,7 +1,5 @@
 # Contributing to Elderly
 
-This platform handles sensitive healthcare data, so we maintain strict security and quality standards.
-
 ## Security First
 
 **CRITICAL**: This platform handles sensitive healthcare data. Every contribution must prioritize security.
