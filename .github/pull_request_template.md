@@ -4,9 +4,23 @@ Brief description of changes made in this PR.
 
 ## Related Issue
 
-<!-- Each PR should address only ONE issue -->
+<!-- IMPORTANT: Each PR must address only ONE issue. Multiple issues require separate PRs. -->
 
 Fixes #
+
+## PR Title Format Verification
+
+<!-- Verify your PR title follows the required format -->
+
+**Required Format:** `type: description (fixes #issue-number)`
+
+Examples:
+
+- `feat: add caregiver verification system (fixes #123)`
+- `fix: resolve authentication timeout issue (fixes #456)`
+- `security: implement rate limiting (fixes #789)`
+
+- [ ] PR title follows the required format above
 
 ## Changes Made
 
@@ -18,7 +32,7 @@ Fixes #
 
 ## Security Impact
 
-<!-- REQUIRED: Describe any security implications -->
+<!-- REQUIRED: This platform handles sensitive healthcare data. Assess security implications. -->
 
 - [ ] No security implications
 - [ ] Security enhancements included
@@ -26,15 +40,52 @@ Fixes #
 
 **Security Details:**
 
+**Security Requirements Checklist:**
+
+- [ ] Input validation using Zod schemas
+- [ ] SQL injection prevention (Prisma only)
+- [ ] XSS protection compliance
+- [ ] Authentication/authorization checks
+- [ ] Rate limiting implementation
+- [ ] Secure error handling (no sensitive data exposure)
+- [ ] OWASP Top 10 compliance
+
+## Pre-Commit Quality Checks
+
+<!-- REQUIRED: All must pass before submitting PR -->
+
+**Code Quality:**
+
+- [ ] `npm run lint` - All linting issues fixed
+- [ ] `npm run type-check` - TypeScript checks pass
+- [ ] `npm run format` - Code formatted consistently
+
+**Security:**
+
+- [ ] `npm audit` - No high/critical vulnerabilities
+- [ ] `npm run build` - Production build succeeds
+
 ## Testing
 
-<!-- REQUIRED: All boxes must be checked -->
+<!-- REQUIRED: Comprehensive testing checklist -->
 
+**Unit & Integration Tests:**
+
+- [ ] `npm run test:unit` - All unit tests pass
 - [ ] Unit tests added/updated for new functionality
-- [ ] Integration tests pass
+- [ ] Integration tests pass locally
+
+**End-to-End Testing:**
+
+- [ ] `npm run test:e2e` - E2E tests pass (if applicable)
 - [ ] E2E tests cover new user workflows
-- [ ] Security validation tests included
 - [ ] Manual testing completed
+
+**Security Testing:**
+
+- [ ] Security validation tests included
+- [ ] Input validation tested with edge cases
+- [ ] Authentication/authorization flows tested
 
 ## Breaking Changes
 
@@ -57,24 +108,65 @@ Fixes #
 - [ ] Refactoring (no functional changes)
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
 
+## Development Standards Compliance
+
+<!-- Verify adherence to contribution standards -->
+
+**Code Style:**
+
+- [ ] Follows existing TypeScript patterns
+- [ ] Uses strict type checking
+- [ ] Implements comprehensive error handling
+- [ ] Adds input validation for all user inputs
+
+**Documentation:**
+
+- [ ] README updated (if adding features)
+- [ ] API changes documented
+- [ ] Security considerations included
+- [ ] Inline documentation for complex logic
+
 ## Screenshots (if applicable)
 
 <!-- Add screenshots for UI changes -->
 
-## Checklist
+## Comprehensive Checklist
 
 <!-- ALL boxes must be checked before requesting review -->
+
+**Code Quality & Standards:**
 
 - [ ] Code follows project style guidelines
 - [ ] Self-review of code completed
 - [ ] Code is commented where necessary
-- [ ] Documentation updated (README, API docs, etc.)
+- [ ] TypeScript strict mode compliance
+- [ ] No new linting errors introduced
+
+**Testing & Validation:**
+
 - [ ] Tests added that prove fix is effective or feature works
 - [ ] New and existing unit tests pass locally
-- [ ] No new linting errors introduced
-- [ ] Security review completed (if applicable)
+- [ ] Test coverage maintained or improved
+- [ ] Security validation completed
+
+**Documentation & Communication:**
+
+- [ ] Documentation updated (README, API docs, etc.)
+- [ ] Security implications assessed and documented
+- [ ] Breaking changes properly documented (if any)
+
+**Healthcare Platform Requirements:**
+
+- [ ] Healthcare compliance considerations addressed
 - [ ] Performance impact assessed
 - [ ] Accessibility considerations addressed
+- [ ] Privacy protection measures verified
+
+**Issue Management:**
+
+- [ ] Links to exactly ONE issue using `Fixes #123`
+- [ ] Issue requirements fully addressed
+- [ ] No scope creep beyond the linked issue
 
 ## Additional Notes
 
@@ -82,4 +174,4 @@ Fixes #
 
 ---
 
-**Security Notice:** This platform handles sensitive healthcare data. Ensure all changes maintain enterprise-grade security standards.
+**Security Notice:** This platform handles sensitive healthcare data. Every change must maintain enterprise-grade security standards and comply with healthcare privacy regulations.
