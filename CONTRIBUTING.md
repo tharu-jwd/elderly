@@ -132,9 +132,15 @@ docker run -p 3000:3000 elderly
 
 ## Contribution Workflow
 
+**Note**: As a small team project, forking is not required. Work directly on feature branches in the main repository.
+
 ### 1. Create Feature Branch
 
+Always create new branches from the latest main branch:
+
 ```bash
+git checkout main
+git pull origin main
 git checkout -b feature/your-feature-name
 # or
 git checkout -b fix/issue-description
@@ -217,9 +223,9 @@ Include:
 - **Security Impact**: Assessment of security implications if any
 - **Testing**: Comprehensive testing checklist
 - **Breaking Changes**: Document any breaking changes
-- **Issue Reference**: Mention the addressing issue `Fixes #issueno` at the end 
+- **Issue Reference**: Mention the addressing issue `Fixes #issueno` at the end
 
-Then tick the checklist provided below. 
+Then tick the checklist provided below.
 
 - [ ] Descriptive title with issue reference
 - [ ] Comprehensive description
@@ -227,7 +233,7 @@ Then tick the checklist provided below.
 - [ ] Test coverage maintained/improved
 - [ ] Security impact assessment
 - [ ] No breaking changes (or properly documented)
-- [ ] Link to issue using `Fixes #123` 
+- [ ] Link to issue using `Fixes #123`
 
 ## Code Review Process
 
