@@ -21,7 +21,7 @@ export default function HomePage() {
     <Container className="py-5">
       <Row className="text-center mb-5">
         <Col>
-          <h1 className="display-4 mb-3">ElderCare Connect</h1>
+          <h1 className="display-4 mb-3">Elderly</h1>
           <p className="lead">Connecting elderly individuals with trusted, verified caregivers</p>
         </Col>
       </Row>
