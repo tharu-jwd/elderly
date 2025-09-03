@@ -8,7 +8,7 @@ import { AppNavbar } from '@/components/layout/Navbar';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'ElderCare Connect - Connecting Elders with Trusted Caregivers',
+  title: 'Elderly - Connecting Elders with Trusted Caregivers',
   description:
     'Secure platform connecting elderly individuals with verified caregivers for personalized care services.',
   keywords: 'elderly care, caregivers, healthcare, senior care, home care',

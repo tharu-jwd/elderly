@@ -58,7 +58,7 @@ function SignInForm() {
             <Card.Body className="p-4">
               <div className="text-center mb-4">
                 <h2>Sign In</h2>
-                <p className="text-muted">Welcome back to ElderCare Connect</p>
+                <p className="text-muted">Welcome back to Elderly</p>
               </div>
 
               {error && (

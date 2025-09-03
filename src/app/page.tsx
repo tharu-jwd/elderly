@@ -21,7 +21,7 @@ export default function HomePage() {
     <Container className="py-5">
       <Row className="text-center mb-5">
         <Col>
-          <h1 className="display-4 mb-3">ElderCare Connect</h1>
+          <h1 className="display-4 mb-3">Elderly</h1>
           <p className="lead">Connecting elderly individuals with trusted, verified caregivers</p>
         </Col>
       </Row>
@@ -96,7 +96,7 @@ export default function HomePage() {
 
       <Row className="mt-5">
         <Col>
-          <h3 className="text-center mb-4">Why Choose ElderCare Connect?</h3>
+          <h3 className="text-center mb-4">Why Choose Elderly?</h3>
           <Row>
             <Col md={4} className="text-center mb-3">
               <h5>🔒 Secure & Private</h5>

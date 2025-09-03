@@ -67,8 +67,7 @@ function SignUpForm() {
               <div className="text-center mb-4">
                 <h2>Sign Up</h2>
                 <p className="text-muted">
-                  Join ElderCare Connect as a{' '}
-                  {formData.role === 'ELDER' ? 'Care Recipient' : 'Caregiver'}
+                  Join Elderly as a {formData.role === 'ELDER' ? 'Care Recipient' : 'Caregiver'}
                 </p>
               </div>
 
