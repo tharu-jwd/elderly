@@ -44,7 +44,10 @@ export async function POST(req: NextRequest) {
     if (error && typeof error === 'object' && 'issues' in error) {
       const issues = (error as { issues: Array<{ message: string }> }).issues;
       const firstIssue = issues[0];
-      return NextResponse.json({ error: firstIssue.message }, { status: 400 });
+      return NextResponse.json(
+        { error: firstIssue?.message || 'Validation failed' },
+        { status: 400 }
+      );
     }
 
     if (error instanceof Error && error.message.includes('validation')) {
