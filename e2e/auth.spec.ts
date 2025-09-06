@@ -27,7 +27,10 @@ test.describe('Authentication', () => {
   test('should validate password requirements on sign up', async ({ page }) => {
     await page.goto('/auth/signup');
 
-    await page.fill('input[name="name"]', 'Test User');
+    // Wait for form to load
+    await page.waitForSelector('input[type="text"]');
+
+    await page.fill('input[type="text"]', 'Test User');
     await page.fill('input[type="email"]', 'test@example.com');
     await page.fill('input[type="password"]', 'weak');
 
