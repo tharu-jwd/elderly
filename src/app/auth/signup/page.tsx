@@ -66,9 +66,7 @@ function SignUpForm() {
             <Card.Body className="p-4">
               <div className="text-center mb-4">
                 <h2>Sign Up</h2>
-                <p className="text-muted">
-                  Join Elderly as a {formData.role === 'ELDER' ? 'Care Recipient' : 'Caregiver'}
-                </p>
+                <p className="text-muted">Join Elderly</p>
               </div>
 
               {error && (
@@ -93,7 +91,7 @@ function SignUpForm() {
                     }
                     disabled={isLoading}
                   >
-                    <option value="ELDER">Care Recipient (Elder)</option>
+                    <option value="ELDER">Elder</option>
                     <option value="CAREGIVER">Caregiver</option>
                   </Form.Select>
                 </Form.Group>
