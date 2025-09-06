@@ -37,7 +37,7 @@ describe('Authentication Flow Integration', () => {
 
         expect(result.success).toBe(false);
         if (!result.success) {
-          expect(result.error.issues[0].message).toContain('Invalid email address');
+          expect(result.error.issues[0]?.message).toContain('Invalid email address');
         }
       });
     });

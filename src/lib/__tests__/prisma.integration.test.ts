@@ -16,8 +16,8 @@ describe('Database Integration', () => {
     // Check that key models exist
     const modelNames = Object.keys(prisma).filter(
       key =>
-        typeof (prisma as Record<string, unknown>)[key] === 'object' &&
-        (prisma as Record<string, { create?: unknown }>)[key].create !== undefined
+        typeof (prisma as unknown as Record<string, unknown>)[key] === 'object' &&
+        (prisma as unknown as Record<string, { create?: unknown }>)[key]?.create !== undefined
     );
 
     expect(modelNames).toContain('user');
