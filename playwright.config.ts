@@ -40,5 +40,12 @@ export default defineConfig({
     command: 'npm run dev',
     url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,
+    env: {
+      NEXTAUTH_SECRET: 'test-secret-key-for-e2e-tests-only',
+      NEXTAUTH_URL: 'http://localhost:3000',
+      DATABASE_URL: 'postgresql://postgres:test@localhost:5432/elderly_test',
+      ENCRYPTION_KEY: 'test-encryption-key-32-chars-long',
+      NODE_ENV: 'test',
+    },
   },
 });
